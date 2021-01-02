@@ -1,13 +1,12 @@
 import React, { Component, useContext } from 'react';
 import Container from '../components/layouts/Container';
-
 import Loader from '../components/Loader';
-
 import { useDispatch } from 'react-redux';
 
-import { selectDealById, selectLoadingStatus } from '../store/dealsReducer';
+import { selectDealById, selectLoadingStatus } from '../store/deals';
 import { useSelector } from 'react-redux';
-import { addToCart } from '../store/cartActions';
+import { addToCart } from '../store/cart';
+
 const DealsDetails = (props) => {
   const id = props.match.params.id;
   const deal = useSelector(selectDealById(id));

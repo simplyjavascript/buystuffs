@@ -23,4 +23,4 @@ const Card = ({ data, children }) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);

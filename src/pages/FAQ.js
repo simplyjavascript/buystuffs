@@ -4,14 +4,14 @@ import Support from '../components/Support';
 import Terms from '../components/TermsConditions';
 import Container from '../components/layouts/Container';
 
-export default class FAQ extends Component {
-  render() {
-    return (
-      <Container>
-        <Questions />
-        <Terms />
-        <Support />
-      </Container>
-    );
-  }
-}
+const FAQ = () => {
+  return (
+    <Container>
+      <Questions />
+      <Terms />
+      <Support />
+    </Container>
+  );
+};
+
+export default FAQ;

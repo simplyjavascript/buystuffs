@@ -1,8 +1,8 @@
 import React from 'react';
-import withToggle from '../hoc/withToggle';
+import useToggle from '../hooks/useToggle';
 
 const Support = (props) => {
-  const { isOpen, toggle } = props;
+  const { isOpen, toggle } = useToggle();
   return (
     <article className="center mw5 mw6-ns br3 hidden ba b--black-10 mv4">
       <h1
@@ -22,4 +22,4 @@ const Support = (props) => {
   );
 };
 
-export default withToggle(Support);
+export default Support;

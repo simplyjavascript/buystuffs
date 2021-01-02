@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 import Card from './Card';
 import Rating from './Rating';
 import SearchBar from './SearchBar';
 import Loader from './Loader';
+import { connect } from 'react-redux';
 import { useSelector } from 'react-redux';
-import {
-  selectFilteredDeals,
-  selectLoadingStatus,
-} from '../store/dealsReducer';
+import { selectLoadingStatus, selectFilteredDeals } from '../store/deals';
 
-const Deals = () => {
+const Deals = (props) => {
   const filteredDeals = useSelector(selectFilteredDeals);
   const loading = useSelector(selectLoadingStatus);
-
   if (loading) {
     return <Loader />;
   }
-
   return (
     <div>
       <header className="tc ph4">

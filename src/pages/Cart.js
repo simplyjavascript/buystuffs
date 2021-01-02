@@ -2,11 +2,13 @@ import React, { Component, useContext } from 'react';
 import CurrencyContext from '../contexts/CurrencyContext';
 
 import { formatMoney } from '../utils/format-money';
-import { useSelector } from 'react-redux';
-import { getCartTotal, selectCartItems } from '../store/cartReducer';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCartTotal, selectCartItems } from '../store/cart';
+import { removeItemFromCart } from '../store/cart';
 
 const Cart = () => {
   const cart = useSelector(selectCartItems);
+  const dispatch = useDispatch();
   const cartTotal = useSelector(getCartTotal);
   const currencyContext = useContext(CurrencyContext);
   const { currency } = currencyContext;
@@ -34,13 +36,13 @@ const Cart = () => {
               <div className="dtc v-mid pl3">
                 <h1 className="f6 f5-ns fw6 lh-title black mv0">{item.name}</h1>
                 <h2 className="f6 fw4 mt0 mb0 black-60">
-                  {' '}
                   {item.price} x {item.quantity}
                 </h2>
               </div>
               <div className="dtc v-mid">
                 <form className="w-100 tr">
                   <button
+                    onClick={() => dispatch(removeItemFromCart(item.id))}
                     className="f6 button-reset bg-white ba 
                b--black-10 dim pointer pv1 black-60"
                     type="button"
